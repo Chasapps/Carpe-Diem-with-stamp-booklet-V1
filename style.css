@@ -48,11 +48,13 @@ html,body{
 
 .splash-body{
   min-height:100vh;
-  background-color: #102133;
-  background-image:url("Carpe-Diem.png");
-  background-repeat:no-repeat;
-  background-position:center 44%;
-  background-size:78%;
+  background-color:#102133;
+  background-image:
+    url("Carpe-Diem.png"),
+    linear-gradient(to bottom, #0E1F2D 0%, #102133 40%, #091726 100%);
+  background-repeat:no-repeat, no-repeat;
+  background-position:center 44%, center;
+  background-size:78%, cover;
   background-attachment:fixed;
   cursor:pointer;
   font-family: ui-serif, Georgia, 'Times New Roman', serif;
@@ -617,4 +619,25 @@ body.full-map #map{
     height: 100% !important;
     min-height: 300px !important;
   }
+}
+
+
+/* --- POOL MENU WIDTH FIX --- */
+@media (max-width: 700px) {
+  #poolList .pool-item {
+    max-width: 340px;
+    margin: 0 auto;
+    border-radius: 14px;
+    padding: 10px;
+    background: rgba(14,36,54,.04);
+  }
+}
+
+/* --- MAP HEIGHT TWEAKS --- */
+.map-wrap {
+  min-height: 420px !important;
+}
+
+#map {
+  min-height: 420px !important;
 }
