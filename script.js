@@ -116,6 +116,36 @@ mapToggle.addEventListener('click', ()=>{
   setTimeout(()=>{ map.invalidateSize(); panToSelected(); }, 150);
 });
 
+
+// Open currently selected pool in native mapping app
+const openNativeMapBtn = document.getElementById('openNativeMap');
+
+function openInNativeMaps(){
+  const p = pools[selectedIndex] || pools[0];
+  if(!p) return;
+  const lat = p.lat;
+  const lng = p.lng;
+
+  // Default to Google Maps; prefer Apple Maps on iOS Safari
+  let url = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  try{
+    const ua = navigator.userAgent || '';
+    if(/iPad|iPhone|iPod/.test(ua)){
+      url = `https://maps.apple.com/?q=${lat},${lng}`;
+    }
+  }catch(e){}
+
+  window.open(url, '_blank');
+}
+
+if(openNativeMapBtn){
+  openNativeMapBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    openInNativeMaps();
+  });
+}
+
+
 /**
  * renderList() — Regenerates the list UI from the pools[] array and current 'visited' map.
  * For a small list this "rebuild each time" approach is simplest and very fast.

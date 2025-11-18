@@ -31,9 +31,9 @@
       </div>
       <span id="countBadge" class="badge">0 / 0</span>
       <div class="actions">
-        <button id="toggleBtn" class="pill primary" title="Toggle Passport/List">Passport</button>
+        <button id="toggleBtn" class="pill primary" title="Toggle Stamps/List">Stamps</button>
         <button id="resetBtn" class="pill ghost" title="Reset stamps">Reset</button>
-        <a href="index.html" class="pill ghost" title="Back to passport">Exit</a>
+        <a href="index.html" class="pill ghost" title="Back to stamps">Exit</a>
       </div>
     </div>
   </header>
@@ -46,8 +46,11 @@
       <div class="content-split">
         <div id="poolList" class="scroll-list card"></div>
         <div class="map-wrap card">
-          <div id="map" style="height:360px;"></div>
-          <button id="mapToggle" class="map-toggle pill" aria-pressed="false">🗺️ Full Map</button>
+          <div id="map" class="pool-map"></div>
+          <div class="map-actions">
+            <button id="openNativeMap" class="pill ghost small">🧭 Open in Maps</button>
+            <button id="mapToggle" class="map-toggle pill" aria-pressed="false">🗺️ Full Map</button>
+          </div>
         </div>
       </div>
     </section>
